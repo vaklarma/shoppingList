@@ -1,0 +1,27 @@
+<div class="checkbox border-bottom p-2">
+  <div class="row">
+
+
+    <div class="col-10">
+      <h5 [ngClass]="itemGainClass"> {{shoppingList.shoppingItemText}}</h5>
+    </div>
+    <div class="col-2">
+      <button type="button"
+              [ngClass]="btnClass"
+
+      >
+
+        <i class="fa fa-check" *ngIf="successGain;else unsuccesGain"></i>
+        <ng-template #unsuccesGain>
+          <i class="fa fa-times"></i>
+        </ng-template>
+
+
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+

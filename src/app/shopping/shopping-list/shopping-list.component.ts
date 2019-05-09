@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ShoppingListService} from '../shopping-list.service';
+import {ShoppingListModel} from '../model/shoppingList.model';
+
 
 @Component({
   selector: 'app-shopping-list',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
+  shoppingList: ShoppingListModel[];
+  collectedShoppingListItems: ShoppingListModel[] = [];
+  @Output() select = new EventEmitter<ShoppingListModel>();
 
-  constructor() { }
+  constructor(shoppingListService: ShoppingListService) {
+    this.shoppingList = shoppingListService.getShoppingListItems();
+  }
 
   ngOnInit() {
+  }
+
+
+  onSelectListRow(shoppingList: ShoppingListModel) {
+    this.select.emit(shoppingList);
   }
 
 }

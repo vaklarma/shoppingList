@@ -1,21 +1,15 @@
-
 <div class="row p-5">
-  <div class="col-6 mx-auto">
-    <div class="list-group">
 
-      <div class="custom-control custom-checkbox border-bottom p-2 shopping-list">
-        <input type="checkbox" class="custom-control-input form-control-lg" id="customCheck1">
-        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-      </div>
-      <div class="custom-control custom-checkbox border-bottom p-2 shopping-list">
-        <input type="checkbox" class="custom-control-input" id="customCheck2">
-        <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>
-      </div>
+  <div class="col-md-6 col-sm-12 mx-auto">
 
-    </div>
+
+    <app-shopping-list-row *ngFor="let shoppingListItem of shoppingList"
+                           [shoppingList]="shoppingListItem"
+                           (select)="onSelectListRow($event)"
+    ></app-shopping-list-row>
+
 
   </div>
-
 
 </div>
 
